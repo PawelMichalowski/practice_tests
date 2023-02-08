@@ -1,0 +1,18 @@
+{
+  "name": "practice_tests",
+  "version": "1.0.0",
+  "description": "My first project",
+  "main": "index.js",
+  "scripts": {
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox", 
+    "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
+    "page:chrome": "playwright test --config=playwright.config.ts --project=Chromium"
+  },
+  "keywords": [],
+  "author": "Pawel Michalowski",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.30.0"
+  }
+}
