@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.parallel('Example API Tests', () => {
+test.describe.parallel.only('Example API Tests', () => {
     const baseUrl = 'https://reqres.in/api'
 
     test('Simple API Test - Assert Response Status', async ({ request }) => {
@@ -79,7 +79,7 @@ test.describe.parallel('Example API Tests', () => {
         expect(responseBody.updatedAt).toBeTruthy();
     })
 
-    test.only('DELETE Request - delete user', async ({ request }) => {
+    test('DELETE Request - delete user', async ({ request }) => {
         const response = await request.delete(`${baseUrl}/users/2`);
         expect(response.status()).toBe(204);
     })
