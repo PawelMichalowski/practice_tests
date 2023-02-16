@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.parallel.only('Example API Tests', () => {
+test.describe.parallel('Example API Tests', () => {
     const baseUrl = 'https://reqres.in/api'
 
     test('Simple API Test - Assert Response Status', async ({ request }) => {
@@ -61,5 +61,26 @@ test.describe.parallel.only('Example API Tests', () => {
         const responseBody = JSON.parse(await response.text());
         expect(response.status()).toBe(400);
         expect(responseBody.error).toBe('Missing password');
-    })  
+    })
+    
+    test('PUT Request Update user details', async ({ request }) => {
+        const response = await request.put(`${baseUrl}/user/2`, {
+            data: {
+                name: 'Kula',
+                job: 'professional gamer',
+                hobby: 'eater',
+            }
+        })
+        const responseBody = JSON.parse(await response.text());
+        expect(response.status()).toBe(200);
+        expect(responseBody.name).toBe('Kula');
+        expect(responseBody.job).toBe('professional gamer');
+        expect(responseBody.hobby).toBe('eater');
+        expect(responseBody.updatedAt).toBeTruthy();
+    })
+
+    test.only('DELETE Request - delete user', async ({ request }) => {
+        const response = await request.delete(`${baseUrl}/users/2`);
+        expect(response.status()).toBe(204);
+    })
 })
