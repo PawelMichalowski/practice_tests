@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.parallel.only('Example API Tests', () => {
+test.describe.parallel('Example API Tests', () => {
     const baseUrl = 'https://reqres.in/api'
 
     test('Simple API Test - Assert Response Status', async ({ request }) => {

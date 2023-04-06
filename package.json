@@ -7,7 +7,8 @@
     "tests:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox", 
     "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
-    "page:chrome": "playwright test --config=playwright.config.ts --project=Chromium"
+    "page:chrome": "playwright test --config=playwright.config.ts --project=Chromium",
+    "tests:api": "playwright test --config=playwright.config.ts --project=Chromium"
   },
   "keywords": [],
   "author": "Pawel Michalowski",
