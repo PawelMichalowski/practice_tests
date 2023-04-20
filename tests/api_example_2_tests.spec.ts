@@ -37,4 +37,20 @@ test.describe.only("Example API test", () => {
         expect(responseBody.last_name).toBe("Berlinka");
         expect(responseBody.email).toBe("psarka.berlinka@example.com");
     })
+
+    test("PUT request update user details", async ({ request }) => {
+        const response = await request.put(`${baseUrl}/users/7`, {
+            data: {
+                first_name: "Kula",
+                job: "professional gamer",
+                hobby: "sleeping champion"
+            }
+        })
+        const responseBody = JSON.parse(await response.text());
+        expect(response.status()).toBe(200);
+        expect(responseBody.first_name).toBe("Kula");
+        expect(responseBody.job).toBe("professional gamer");
+        expect(responseBody.hobby).toBe("sleeping champion");
+        expect(responseBody.updatedAt).toBeTruthy;
+    })
 })
