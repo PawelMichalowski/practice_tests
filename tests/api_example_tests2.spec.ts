@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.only('Example API Tests 2', () => {
+test.describe('Example API Tests 2', () => {
     const baseUrl = 'https://angular.realworld.io/'
 
     test('First API Test - Verification of Tags', async ({ request }) => {
